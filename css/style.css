@@ -1,0 +1,42 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  min-height: 100vh;
+  width: 100%;
+  align-items: center;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:root {
+  /* Hámarksbreidd á efni */
+  --max-width: 1400px;
+  --color-text: #000;
+  /* Letur stillingar */
+  --font-size: 16px;
+  --font-family-base: "Lato", arial, sans-serif;
+  --font-family-heading: "Lora", georgia, serif;
+}
+
+main {
+  width: auto;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+header {
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */

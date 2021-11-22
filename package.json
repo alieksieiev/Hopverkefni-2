@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "browser-sync": "^2.27.5"
+  },
+  "name": "hoptest",
+  "version": "1.0.0",
+  "description": "hópverkefni-1",
+  "main": "index.js",
+  "devDependencies": {
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
+  },
+  "scripts": {
+    "browser-sync": "browser-sync start --server --files index.html css/style.css",
+    "sass": "sass styles/config.scss css/style.css",
+    "sass-watch": "sass --watch styles/config.scss css/style.css",
+    "dev": "concurrently npm:sass-watch npm:browser-sync",
+    "lint-css": "stylelint css/styles.css",
+    "lint-scss": "stylelint styles/styles.scss --syntax scss"
+  },
+  "author": "",
+  "license": "ISC"
+}

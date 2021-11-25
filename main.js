@@ -38,6 +38,11 @@ function renderTodoItems() {
       tags.appendChild(due);
     }
 
+    for (let j = 0; j < item.tags.length; j += 1) {
+      const tag = el('button', item.tags[j])
+      tags.appendChild(tag)
+    }
+
     const category = el('label', item.category);
 
     tags.appendChild(category);

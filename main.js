@@ -11,17 +11,23 @@ console.log(todoItems);
 
 const main = document.querySelector('main');
 
+// Function til að skrifa element fyrir verkefnin
 function renderTodoItems() {
+
+  // Ef engin verkefni eru sett fyrir birtast viðeigandi texti
   if(todoItems.length === 0) {
     const noItemsElement = el('p', 'Engin verkefni sett fyrir')
+    main.appendChild(noItemsElement)
   }
 
+  // Búum til element sem heldur utan um öll verkefni
   const todosElement = el('div');
   todosElement.classList.add('itemList__list');
   const sectionElement = el('section', todosElement);
   sectionElement.classList.add('container-right');
   main.appendChild(sectionElement);
 
+  // Ítrum hvert verkefni og búum til viðeigandi element
   for (let i = 0; i < todoItems.length; i += 1) {
     const item = todoItems[i];
     const label = el('label', item.title);
@@ -29,6 +35,7 @@ function renderTodoItems() {
     const tags = el('div');
     const itemDiv = el('div');
 
+    // Skrifar út dags. ef hún er til fyrir hvert verkefni
     if (item.due != null) {
       const date = new Date(item.due).toString()
       const due = el('p', date.substring(3,10))
@@ -38,6 +45,7 @@ function renderTodoItems() {
       tags.appendChild(due);
     }
 
+    // Ef tögg eru til staðar þá þarf að bæta þeim við
     for (let j = 0; j < item.tags.length; j += 1) {
       const tag = el('button', item.tags[j])
       tags.appendChild(tag)

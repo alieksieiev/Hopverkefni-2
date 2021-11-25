@@ -29,17 +29,17 @@ function renderTodoItems() {
     const tags = el('div');
     const itemDiv = el('div');
 
-    /*
     if (item.due != null) {
-      const dueDate = new Date(item.due).toString();
-      return dueDate;
+      const date = new Date(item.due).toString()
+      const due = el('p', date.substring(3,10))
+      tags.appendChild(due);
+    } else {
+      const due = el('p', 'Engin dags.')
+      tags.appendChild(due);
     }
-    */
 
-    const due = el('p', new Date(item.due).toString());
     const category = el('label', item.category);
 
-    tags.appendChild(due);
     tags.appendChild(category);
 
     itemDiv.classList.add('todo__item');
@@ -49,10 +49,6 @@ function renderTodoItems() {
 
     todosElement.appendChild(itemDiv);
   }
-}
-
-for (const item of todoItems) {
-  console.log(item.id);
 }
 
 renderTodoItems();

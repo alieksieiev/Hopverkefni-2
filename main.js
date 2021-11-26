@@ -42,6 +42,9 @@ function renderSideBar() {
   generalDiv.appendChild(completedTasks);
   generalDiv.appendChild(completedTasksCount);
 
+  // Skrifar út titilinn "Flokkar" og þá flokka sem til eru
+  const category = el('h2', 'Flokkar')
+  categoryDiv.appendChild(category);
 }
 
 // Function til að skrifa element fyrir verkefnin

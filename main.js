@@ -27,6 +27,21 @@ function renderSideBar() {
   sectionElementLeft.appendChild(tagDiv);
 
   main.appendChild(sectionElementLeft);
+
+  // Segir til um heildafjölda verkefna
+  const taskCount = todoItems.length;
+  const allTasks = el('h3', 'Verkefni');
+  const allTasksCount = el('p', taskCount.toString());
+  generalDiv.appendChild(allTasks);
+  generalDiv.appendChild(allTasksCount);
+
+  // Skrifar út fjölda kláruð verkefni
+  const tasksCompleted = todoItems.filter(function(s) {return s.completed; }).length;
+  const completedTasks = el('h3', 'Kláruð Verkefni');
+  const completedTasksCount = el('p', tasksCompleted.toString());
+  generalDiv.appendChild(completedTasks);
+  generalDiv.appendChild(completedTasksCount);
+
 }
 
 // Function til að skrifa element fyrir verkefnin

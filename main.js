@@ -11,6 +11,24 @@ console.log(todoItems);
 
 const main = document.querySelector('main');
 
+function renderSideBar() {
+  const generalDiv = el('div');
+  generalDiv.classList.add('general');
+  const categoryDiv = el('div');
+  categoryDiv.classList.add('category');
+  const tagDiv = el('div');
+  tagDiv.classList.add('tagsSideBar');
+
+  const sectionElementLeft = el('section');
+  sectionElementLeft.classList.add('container-left');
+
+  sectionElementLeft.appendChild(generalDiv);
+  sectionElementLeft.appendChild(categoryDiv);
+  sectionElementLeft.appendChild(tagDiv);
+
+  main.appendChild(sectionElementLeft);
+}
+
 // Function til að skrifa element fyrir verkefnin
 function renderTodoItems() {
 
@@ -64,4 +82,5 @@ function renderTodoItems() {
   }
 }
 
+renderSideBar();
 renderTodoItems();

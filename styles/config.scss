@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
 * {
+  font-family: 'Cairo', sans-serif;;
   margin: 0;
   padding: 0;
 }
@@ -40,6 +42,26 @@ main{
 header{
   text-align: center;
 }
+
+.container-left{
+  
+  .item{
+    display: flex;
+    width: 300px;
+    font-size: 1.3em;
+  }
+  li{
+    list-style-type: none;
+  }
+  p{
+    display: block;
+    margin-left: 30%;
+  }
+}
+
+
+
+
 
 
 

@@ -18,6 +18,7 @@ function renderSideBar() {
   categoryDiv.classList.add('category');
   const tagDiv = el('div');
   tagDiv.classList.add('tagsSideBar');
+  
 
   const sectionElementLeft = el('section');
   sectionElementLeft.classList.add('container-left');
@@ -29,22 +30,68 @@ function renderSideBar() {
   main.appendChild(sectionElementLeft);
 
   // Segir til um heildafjölda verkefna
+  const itemVerkefni = el('div');
+  itemVerkefni.classList.add('item');
   const taskCount = todoItems.length;
-  const allTasks = el('h3', 'Verkefni');
+  const allTasks = el('li', 'Verkefni');
   const allTasksCount = el('p', taskCount.toString());
-  generalDiv.appendChild(allTasks);
-  generalDiv.appendChild(allTasksCount);
+
+  itemVerkefni.appendChild(allTasks);
+  itemVerkefni.appendChild(allTasksCount);
+  generalDiv.appendChild(itemVerkefni);
+  
 
   // Skrifar út fjölda kláruð verkefni
+  const itemKlarud = el('div');
+  itemKlarud.classList.add('item');
   const tasksCompleted = todoItems.filter(function(s) {return s.completed; }).length;
-  const completedTasks = el('h3', 'Kláruð Verkefni');
+  const completedTasks = el('li', 'Kláruð Verkefni');
   const completedTasksCount = el('p', tasksCompleted.toString());
-  generalDiv.appendChild(completedTasks);
-  generalDiv.appendChild(completedTasksCount);
+  itemKlarud.appendChild(completedTasks);
+  itemKlarud.appendChild(completedTasksCount);
+  generalDiv.appendChild(itemKlarud);
 
   // Skrifar út titilinn "Flokkar" og þá flokka sem til eru
   const category = el('h2', 'Flokkar')
   categoryDiv.appendChild(category);
+  
+  let countsVef = 0;
+  let countsSkipulag = 0;
+  let countsVefpjonusta = 0;
+  for (let i = 0; i < todoItems.length; i++){
+      const item = todoItems[i];
+      if(item.category === 'vefforrit'){
+        countsVef++
+      }else if(item.category === 'skipulag'){
+          countsSkipulag++;
+      }else if(item.category === 'vefþjónustur'){
+          countsVefpjonusta++;
+      }
+  }
+
+  const vefforitLi = el('li', 'vefforit');
+  const vefforitP = el('p', String(countsVef));
+  const vefforitDiv = el('div');
+  vefforitDiv.classList.add('item');
+  vefforitDiv.appendChild(vefforitLi);
+  vefforitDiv.appendChild(vefforitP)
+  categoryDiv.appendChild(vefforitDiv);
+
+  const skipulagLi = el('li', 'skipulag');
+  const skipulagP = el('p', String(countsSkipulag));
+  const skipulagDiv = el('div');
+  skipulagDiv.classList.add('item');
+  skipulagDiv.appendChild(skipulagLi);
+  skipulagDiv.appendChild(skipulagP)
+  categoryDiv.appendChild(skipulagDiv);
+
+  const vefþjónusturLi = el('li', 'vefþjónustur');
+  const vefþjónusturP = el('p', String(countsVefpjonusta));
+  const vefþjónusturDiv = el('div');
+  vefþjónusturDiv.classList.add('item');
+  vefþjónusturDiv.appendChild(vefþjónusturLi);
+  vefþjónusturDiv.appendChild(vefþjónusturP)
+  categoryDiv.appendChild(vefþjónusturDiv);
 }
 
 // Function til að skrifa element fyrir verkefnin
